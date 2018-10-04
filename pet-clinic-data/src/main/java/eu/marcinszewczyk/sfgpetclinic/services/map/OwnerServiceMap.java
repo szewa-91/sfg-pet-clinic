@@ -1,10 +1,11 @@
 package eu.marcinszewczyk.sfgpetclinic.services.map;
 
 import eu.marcinszewczyk.sfgpetclinic.model.Owner;
+import eu.marcinszewczyk.sfgpetclinic.services.CrudService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -17,7 +18,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> {
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object);
+        return super.save(object.getId(), object);
     }
 
     @Override
